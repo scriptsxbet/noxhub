@@ -477,3 +477,62 @@ img {
         text-align: center;
     }
 }
+
+
+/* ===== MOBILE HORIZONTAL SCROLL FIX ===== */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+
+    html,
+    body {
+        overflow-x: clip;
+    }
+}
+
+body {
+    overscroll-behavior-x: none;
+}
+
+main,
+header,
+section,
+footer {
+    max-width: 100%;
+}
+
+@media (max-width: 620px) {
+    .container {
+        width: min(calc(100% - 24px), var(--container));
+    }
+
+    .main-header {
+        width: calc(100% - 20px);
+        margin-inline: auto;
+    }
+
+    .nav-menu {
+        right: 10px;
+        left: 10px;
+        width: auto;
+    }
+
+    .site-orb {
+        width: 260px;
+        height: 260px;
+        filter: blur(42px);
+    }
+
+    .orb-one {
+        right: -125px;
+    }
+
+    .orb-two {
+        left: -135px;
+    }
+}

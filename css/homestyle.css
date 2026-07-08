@@ -1052,3 +1052,135 @@
         border-radius: 24px;
     }
 }
+
+/* ===== HOME MOBILE FIX ===== */
+.hero-section,
+.tools-section {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.hero-layout,
+.hero-content,
+.hero-features,
+.tools-grid,
+.tool-card,
+.soon-card {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* زر شرح الاسكربت */
+.tool-btn-outline {
+    color: #eff8ff;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(135, 200, 255, 0.22);
+    box-shadow: none;
+}
+
+.tool-btn-outline:hover {
+    color: var(--blue-2, #42dcff);
+    border-color: rgba(66, 220, 255, 0.52);
+    background: rgba(66, 220, 255, 0.08);
+}
+
+/* زر تحميل مجاني - أزرق ومختلف */
+.tool-btn-primary {
+    color: #ffffff;
+    border: 1px solid rgba(66, 220, 255, 0.62);
+    background: linear-gradient(135deg, #058FFF 0%, #0B6BFF 48%, #063DD9 100%);
+    box-shadow:
+        0 18px 40px rgba(5, 143, 255, 0.35),
+        0 0 28px rgba(66, 220, 255, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.tool-btn-primary:hover {
+    color: #ffffff;
+    border-color: rgba(66, 220, 255, 0.82);
+    background: linear-gradient(135deg, #20A2FF 0%, #0876FF 48%, #064BE8 100%);
+    box-shadow:
+        0 22px 50px rgba(5, 143, 255, 0.48),
+        0 0 36px rgba(66, 220, 255, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+/* إصلاح الموبايل */
+@media (max-width: 760px) {
+    .hero-section {
+        padding: 72px 0 52px;
+    }
+
+    .hero-section::before,
+    .tools-section::before {
+        width: 360px;
+        height: 360px;
+        filter: blur(18px);
+    }
+
+    .hero-layout,
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2rem, 9vw, 2.45rem);
+        line-height: 1.22;
+        letter-spacing: 0;
+        overflow-wrap: break-word;
+    }
+
+    .hero-content p {
+        max-width: 100%;
+        font-size: 0.96rem;
+        line-height: 1.85;
+    }
+
+    .hero-features {
+        width: 100%;
+        grid-template-columns: 1fr;
+        border-radius: 24px;
+    }
+
+    .tools-grid {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .tool-card,
+    .soon-card {
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    .platforms-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .platforms-row span {
+        min-width: 0;
+        font-size: 0.86rem;
+        padding-inline: 4px;
+    }
+
+    .tool-actions {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tool-btn {
+        min-width: 0;
+        padding-inline: 8px;
+        font-size: 0.86rem;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 430px) {
+    .tool-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-btn {
+        white-space: normal;
+    }
+}
