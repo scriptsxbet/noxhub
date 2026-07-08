@@ -1,6 +1,6 @@
 const TOOL_CONFIG = {
     name: "CRASHFX",
-    downloadUrl: "https://example.com/crashfx.apk",
+    downloadUrl: "https://download.noxir.org/crashup-v1/CrashFX.apk",
     videoUrl: "assets/crashfx-guide.mp4",
 
     faqVideos: {
