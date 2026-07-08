@@ -1,6 +1,29 @@
 const menuButton = document.querySelector(".menu-btn");
 const navMenu = document.querySelector(".nav-menu");
 const toast = document.getElementById("siteToast");
+const themeToggle = document.querySelector("[data-theme-toggle]");
+const rootElement = document.documentElement;
+const THEME_KEY = "noxir-theme";
+
+function applyTheme(theme) {
+    const isLight = theme === "light";
+
+    rootElement.classList.toggle("theme-light", isLight);
+    localStorage.setItem(THEME_KEY, isLight ? "light" : "dark");
+
+    if (themeToggle) {
+        themeToggle.innerHTML = `<i class="${isLight ? "ri-moon-line" : "ri-sun-line"}"></i>`;
+        themeToggle.setAttribute("aria-label", isLight ? "تفعيل الدارك مود" : "تفعيل اللايت مود");
+        themeToggle.setAttribute("title", isLight ? "تفعيل الدارك مود" : "تفعيل اللايت مود");
+    }
+}
+
+applyTheme(localStorage.getItem(THEME_KEY) === "light" ? "light" : "dark");
+
+themeToggle?.addEventListener("click", () => {
+    const nextTheme = rootElement.classList.contains("theme-light") ? "dark" : "light";
+    applyTheme(nextTheme);
+});
 
 function showToast(message) {
     if (!toast) return;

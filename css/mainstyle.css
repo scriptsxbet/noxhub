@@ -700,3 +700,63 @@ body::after {
     color: #058FFF !important;
     text-shadow: 0 0 14px rgba(5, 143, 255, 0.22);
 }
+
+/* ===== REMOVE BLUE FROM BACKGROUND - DEEP BLACK THEME ===== */
+
+:root {
+    --bg: #010101;
+    --bg-soft: #050505;
+    --card: rgba(8, 8, 10, 0.96);
+    --card-dark: rgba(3, 3, 4, 0.99);
+    --line: rgba(255, 255, 255, 0.075);
+    --line-strong: rgba(255, 255, 255, 0.14);
+    --shadow: 0 28px 90px rgba(0, 0, 0, 0.86);
+    --glow: none;
+}
+
+html,
+body {
+    background: #010101 !important;
+}
+
+body {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.035), transparent 28%),
+        linear-gradient(180deg, #030303 0%, #010101 42%, #000000 100%) !important;
+}
+
+/* شيل أي طبقات زرقاء من الخلفية */
+body::before {
+    background: none !important;
+    opacity: 0 !important;
+}
+
+body::after {
+    background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.018), transparent 1px),
+        radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.014), transparent 1px) !important;
+    background-size: 110px 110px, 160px 160px !important;
+    opacity: 0.22 !important;
+}
+
+/* إلغاء الأوربات الزرقاء الكبيرة */
+.site-orb,
+.orb-one,
+.orb-two {
+    display: none !important;
+}
+
+/* الهيدر أغمق */
+.main-header {
+    background: rgba(3, 3, 4, 0.88) !important;
+    border-color: rgba(255, 255, 255, 0.075) !important;
+    box-shadow:
+        0 24px 80px rgba(0, 0, 0, 0.82),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035) !important;
+}
+
+/* القائمة في الموبايل */
+.nav-menu {
+    background: rgba(4, 4, 5, 0.98) !important;
+    border-color: rgba(255, 255, 255, 0.075) !important;
+}

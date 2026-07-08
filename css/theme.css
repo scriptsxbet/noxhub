@@ -1,0 +1,908 @@
+/* =====================================================
+   NOXIR THEME TOGGLE + LIGHT MODE
+   ملف جديد: css/theme.css
+   ===================================================== */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.theme-toggle {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    background: rgba(8, 9, 13, 0.95);
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.22s ease;
+    box-shadow: none !important;
+}
+
+.theme-toggle i {
+    font-size: 1.35rem;
+    line-height: 1;
+}
+
+.theme-toggle:hover {
+    color: #ffffff;
+    border-color: rgba(5, 143, 255, 0.45);
+    background: rgba(5, 143, 255, 0.14);
+    transform: translateY(-2px);
+}
+
+/* ترتيب الهيدر */
+.nav-wrap {
+    justify-content: space-between;
+}
+
+@media (max-width: 960px) {
+    .header-actions {
+        gap: 8px;
+    }
+
+    .theme-toggle,
+    .menu-btn {
+        width: 46px;
+        height: 46px;
+    }
+}
+
+/* =====================================================
+   LIGHT MODE VARIABLES
+   ===================================================== */
+
+html.theme-light {
+    --bg: #f5f8fc;
+    --bg-soft: #ffffff;
+    --card: #ffffff;
+    --card-dark: #f8fbff;
+    --line: rgba(15, 35, 70, 0.12);
+    --line-strong: rgba(5, 143, 255, 0.36);
+    --text: #0c1628;
+    --muted: #536477;
+    --muted-2: #7d8a9b;
+    --blue: #058FFF;
+    --blue-2: #087be0;
+    --blue-3: #006ad6;
+    --green: #0ca866;
+    --orange: #b87900;
+    --red: #e33f5f;
+    --shadow: none;
+    --glow: none;
+    color-scheme: light;
+}
+
+/* شيل كل الشادو في اللايت مود */
+html.theme-light *,
+html.theme-light *::before,
+html.theme-light *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+html.theme-light body {
+    color: var(--text) !important;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(5, 143, 255, 0.055), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f6f9fd 48%, #eef4fb 100%) !important;
+}
+
+html.theme-light body::before {
+    background:
+        linear-gradient(120deg, rgba(5, 143, 255, 0.035), transparent 38%),
+        linear-gradient(300deg, rgba(5, 143, 255, 0.025), transparent 42%) !important;
+    opacity: 1 !important;
+}
+
+html.theme-light body::after {
+    background:
+        radial-gradient(circle at 30% 20%, rgba(5, 143, 255, 0.055), transparent 1px),
+        radial-gradient(circle at 70% 60%, rgba(12, 22, 40, 0.035), transparent 1px) !important;
+    background-size: 110px 110px, 160px 160px !important;
+    opacity: 0.24 !important;
+}
+
+html.theme-light .site-orb,
+html.theme-light .orb-one,
+html.theme-light .orb-two {
+    display: none !important;
+}
+
+/* =====================================================
+   GLOBAL LIGHT ELEMENTS
+   ===================================================== */
+
+html.theme-light .main-header,
+html.theme-light .nav-menu {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-color: rgba(15, 35, 70, 0.10) !important;
+}
+
+html.theme-light .logo,
+html.theme-light .footer-logo {
+    color: #0c1628 !important;
+}
+
+html.theme-light .logo span,
+html.theme-light .footer-logo span {
+    color: #058FFF !important;
+}
+
+html.theme-light .nav-menu a {
+    color: #18243a !important;
+}
+
+html.theme-light .nav-menu a:not(.nav-cta):hover {
+    color: #058FFF !important;
+    background: rgba(5, 143, 255, 0.075) !important;
+}
+
+html.theme-light .theme-toggle,
+html.theme-light .menu-btn {
+    background: #ffffff !important;
+    border-color: rgba(15, 35, 70, 0.13) !important;
+    color: #0c1628 !important;
+}
+
+html.theme-light .theme-toggle:hover,
+html.theme-light .menu-btn:hover {
+    color: #058FFF !important;
+    background: #f2f7ff !important;
+    border-color: rgba(5, 143, 255, 0.28) !important;
+}
+
+html.theme-light .menu-btn span {
+    background: #0c1628 !important;
+}
+
+html.theme-light .eyebrow,
+html.theme-light .free-badge,
+html.theme-light .offer-kicker,
+html.theme-light .offer-safe {
+    background: #ffffff !important;
+    border-color: rgba(5, 143, 255, 0.15) !important;
+    color: #058FFF !important;
+}
+
+html.theme-light .section-title h2 {
+    color: #0c1628 !important;
+}
+
+html.theme-light .section-title span,
+html.theme-light .section-title span:last-child {
+    background: linear-gradient(90deg, transparent, rgba(5, 143, 255, 0.55), transparent) !important;
+}
+
+html.theme-light .nav-cta,
+html.theme-light .primary-btn,
+html.theme-light .android-download-btn,
+html.theme-light .download-btn,
+html.theme-light .promo-main-btn,
+html.theme-light .promo-code-box button,
+html.theme-light .tool-actions .tool-btn-primary {
+    color: #ffffff !important;
+    background: #058FFF !important;
+    border: 1px solid #058FFF !important;
+}
+
+html.theme-light .nav-cta:hover,
+html.theme-light .primary-btn:hover,
+html.theme-light .android-download-btn:hover,
+html.theme-light .download-btn:hover,
+html.theme-light .promo-main-btn:hover,
+html.theme-light .promo-code-box button:hover,
+html.theme-light .tool-actions .tool-btn-primary:hover {
+    color: #ffffff !important;
+    background: #0077ff !important;
+    border-color: #0077ff !important;
+    filter: none !important;
+}
+
+html.theme-light .secondary-btn,
+html.theme-light .tool-actions a,
+html.theme-light .tool-actions button {
+    color: #0c1628 !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(15, 35, 70, 0.12) !important;
+}
+
+html.theme-light .secondary-btn:hover,
+html.theme-light .tool-actions a:hover,
+html.theme-light .tool-actions button:hover {
+    color: #058FFF !important;
+    background: #f2f7ff !important;
+    border-color: rgba(5, 143, 255, 0.28) !important;
+}
+
+/* =====================================================
+   HOME PAGE LIGHT
+   ===================================================== */
+
+html.theme-light .hero-section::before,
+html.theme-light .tools-section::before,
+html.theme-light .faq-section::before {
+    background: radial-gradient(circle, rgba(5, 143, 255, 0.07), transparent 68%) !important;
+    filter: none !important;
+}
+
+html.theme-light .hero-content h1,
+html.theme-light .tool-title-row h1,
+html.theme-light .tool-preview h3,
+html.theme-light .soon-card span,
+html.theme-light .promo-text h3 {
+    color: #0c1628 !important;
+}
+
+html.theme-light .hero-content h1 span,
+html.theme-light .promo-text h3 em,
+html.theme-light .tool-body h3,
+html.theme-light .tool-preview h3,
+html.theme-light .requirement-card b,
+html.theme-light .bonus-percent strong,
+html.theme-light .bonus-percent span,
+html.theme-light .bonus-mini-code b {
+    color: #058FFF !important;
+    background: none !important;
+    -webkit-text-fill-color: #058FFF !important;
+}
+
+html.theme-light .hero-content p,
+html.theme-light .tool-body p,
+html.theme-light .tool-info>p,
+html.theme-light .download-copy p,
+html.theme-light .promo-lead,
+html.theme-light .requirement-card p,
+html.theme-light .activation-note p,
+html.theme-light .faq-answer p,
+html.theme-light .promo-trust span {
+    color: #536477 !important;
+}
+
+html.theme-light .hero-features,
+html.theme-light .tool-card,
+html.theme-light .soon-card,
+html.theme-light .contact-card,
+html.theme-light .requirement-card,
+html.theme-light .faq-item,
+html.theme-light .download-panel,
+html.theme-light .activation-note,
+html.theme-light .tool-preview,
+html.theme-light .promo-shell,
+html.theme-light .promo-card,
+html.theme-light .bonus-card,
+html.theme-light .float-chip {
+    background: #ffffff !important;
+    border-color: rgba(15, 35, 70, 0.10) !important;
+}
+
+html.theme-light .feature-box {
+    border-color: rgba(15, 35, 70, 0.08) !important;
+}
+
+html.theme-light .feature-box:hover {
+    background: #f4f9ff !important;
+}
+
+html.theme-light .feature-box i,
+html.theme-light .contact-card>i,
+html.theme-light .faq-icon,
+html.theme-light .faq-arrow,
+html.theme-light .activation-note i,
+html.theme-light .download-icon {
+    color: #058FFF !important;
+    background: #f2f8ff !important;
+    border: 1px solid rgba(5, 143, 255, 0.16) !important;
+    filter: none !important;
+}
+
+html.theme-light .feature-box strong,
+html.theme-light .contact-card h3,
+html.theme-light .requirement-card h3,
+html.theme-light .faq-title,
+html.theme-light .promo-benefits strong,
+html.theme-light .code-info b,
+html.theme-light .bonus-mini-code b {
+    color: #0c1628 !important;
+}
+
+html.theme-light .feature-box span,
+html.theme-light .platforms-label,
+html.theme-light .platforms-row span,
+html.theme-light .contact-card p,
+html.theme-light .promo-benefits span,
+html.theme-light .code-info span,
+html.theme-light .promo-tab small {
+    color: #536477 !important;
+}
+
+html.theme-light .tool-cover,
+html.theme-light .soon-card::before,
+html.theme-light .contact-card::before {
+    background:
+        radial-gradient(circle at 50% 22%, rgba(5, 143, 255, 0.08), transparent 38%),
+        linear-gradient(135deg, #f6faff, #ffffff) !important;
+}
+
+html.theme-light .cover-motion,
+html.theme-light .cover-light,
+html.theme-light .tool-preview-motion,
+html.theme-light .promo-shell::before,
+html.theme-light .promo-card::before {
+    background: none !important;
+}
+
+html.theme-light .tool-icon,
+html.theme-light .preview-icon {
+    background: #ffffff !important;
+    border-color: rgba(5, 143, 255, 0.18) !important;
+}
+
+html.theme-light .online-badge,
+html.theme-light .preview-live {
+    color: #0ca866 !important;
+    background: #f1fff8 !important;
+    border-color: rgba(12, 168, 102, 0.18) !important;
+}
+
+html.theme-light .online-badge b,
+html.theme-light .preview-live b {
+    background: #0ca866 !important;
+}
+
+html.theme-light .contact-card span,
+html.theme-light .tool-platforms span {
+    color: #058FFF !important;
+    background: #f2f8ff !important;
+    border: 1px solid rgba(5, 143, 255, 0.14) !important;
+}
+
+/* =====================================================
+   TOOL PAGE LIGHT
+   ===================================================== */
+
+html.theme-light .tool-platforms div,
+html.theme-light .platforms-row span,
+html.theme-light .promo-tab,
+html.theme-light .promo-benefits div,
+html.theme-light .promo-code-box,
+html.theme-light .bonus-mini-code {
+    background: #f8fbff !important;
+    border-color: rgba(15, 35, 70, 0.10) !important;
+}
+
+html.theme-light .tool-platforms strong {
+    color: #0c1628 !important;
+}
+
+html.theme-light .requirement-card:hover,
+html.theme-light .faq-item.active,
+html.theme-light .tool-card:hover,
+html.theme-light .contact-card:hover {
+    border-color: rgba(5, 143, 255, 0.28) !important;
+}
+
+html.theme-light .faq-question {
+    background: transparent !important;
+}
+
+html.theme-light .faq-answer {
+    background: transparent !important;
+}
+
+html.theme-light .download-icon i,
+html.theme-light .download-icon span {
+    color: #058FFF !important;
+}
+
+/* =====================================================
+   PROMO LIGHT
+   ===================================================== */
+
+html.theme-light .promo-card {
+    background:
+        radial-gradient(circle at 82% 22%, rgba(5, 143, 255, 0.06), transparent 32%),
+        linear-gradient(135deg, #ffffff, #f8fbff) !important;
+}
+
+html.theme-light .promo-tab:hover,
+html.theme-light .promo-tab.active {
+    color: #058FFF !important;
+    background: #eef6ff !important;
+    border-color: rgba(5, 143, 255, 0.28) !important;
+}
+
+html.theme-light .promo-code-box {
+    border-style: dashed !important;
+    border-color: rgba(5, 143, 255, 0.28) !important;
+}
+
+html.theme-light .promo-light {
+    display: none !important;
+}
+
+html.theme-light .bonus-ring {
+    border-color: rgba(5, 143, 255, 0.18) !important;
+}
+
+html.theme-light .promo-disclaimer {
+    color: #536477 !important;
+}
+
+/* =====================================================
+   CUSTOM VIDEO LIGHT
+   ===================================================== */
+
+html.theme-light .custom-video-player {
+    background: #000000 !important;
+    border-color: rgba(15, 35, 70, 0.12) !important;
+}
+
+html.theme-light .custom-video-player::before {
+    box-shadow: none !important;
+}
+
+html.theme-light .center-play {
+    color: #058FFF !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-color: rgba(5, 143, 255, 0.24) !important;
+}
+
+html.theme-light .video-controls {
+    background: rgba(255, 255, 255, 0.94) !important;
+    border-color: rgba(15, 35, 70, 0.12) !important;
+}
+
+html.theme-light .video-controls button {
+    color: #0c1628 !important;
+    background: #f2f7ff !important;
+}
+
+html.theme-light .video-controls button:hover {
+    color: #058FFF !important;
+    background: #eaf4ff !important;
+}
+
+html.theme-light .video-time {
+    color: #0c1628 !important;
+}
+
+html.theme-light .video-progress {
+    background: rgba(15, 35, 70, 0.12) !important;
+}
+
+html.theme-light .video-progress-fill {
+    background: #058FFF !important;
+}
+
+html.theme-light .video-progress-thumb {
+    background: #058FFF !important;
+}
+
+/* =====================================================
+   FOOTER + TOAST LIGHT
+   ===================================================== */
+
+html.theme-light .main-footer {
+    background: #ffffff !important;
+    border-top-color: rgba(15, 35, 70, 0.10) !important;
+}
+
+html.theme-light .main-footer p,
+html.theme-light .main-footer a,
+html.theme-light .main-footer span {
+    color: #536477 !important;
+}
+
+html.theme-light .main-footer h4 {
+    color: #0c1628 !important;
+}
+
+html.theme-light .main-footer a:hover {
+    color: #058FFF !important;
+}
+
+html.theme-light .toast {
+    color: #0c1628 !important;
+    background: #ffffff !important;
+    border-color: rgba(15, 35, 70, 0.12) !important;
+}
+
+/* موبايل */
+@media (max-width: 960px) {
+    html.theme-light .nav-menu {
+        background: rgba(255, 255, 255, 0.98) !important;
+        border-color: rgba(15, 35, 70, 0.10) !important;
+    }
+}
+
+/* =====================================================
+   FIX LIGHT MODE ISSUES
+   ضيف الجزء ده آخر ملف theme.css
+   ===================================================== */
+
+/* منع أي سواد في أعلى الصفحة أو خلف الهيدر */
+html.theme-light,
+html.theme-light body {
+    background-color: #f6f9fd !important;
+}
+
+html.theme-light body {
+    background:
+        linear-gradient(180deg, #ffffff 0%, #f7faff 42%, #eef4fb 100%) !important;
+}
+
+html.theme-light body::before,
+html.theme-light body::after {
+    display: none !important;
+}
+
+/* زر ابدأ الآن / تحميل الآن في اللايت مود لازم الخط أبيض */
+html.theme-light .nav-menu a.nav-cta,
+html.theme-light .nav-menu a.nav-cta:visited,
+html.theme-light .nav-menu a.nav-cta:hover,
+html.theme-light .nav-menu a.nav-cta:focus {
+    color: #ffffff !important;
+    background: #058FFF !important;
+    border-color: #058FFF !important;
+}
+
+/* زرار اللايت / الدارك بدون شادو */
+html.theme-light .theme-toggle,
+html.theme-light .theme-toggle:hover,
+html.theme-light .theme-toggle:focus {
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+/* كلمة متصل الآن في كارد الصفحة الرئيسية */
+html.theme-light .tool-status,
+html.theme-light .online-badge,
+html.theme-light .preview-live {
+    color: #0ca866 !important;
+    background: #f0fff8 !important;
+    border: 1px solid rgba(12, 168, 102, 0.20) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+html.theme-light .tool-status span,
+html.theme-light .online-badge span,
+html.theme-light .preview-live span {
+    color: #0ca866 !important;
+}
+
+html.theme-light .tool-status b,
+html.theme-light .online-badge b,
+html.theme-light .preview-live b {
+    background: #0ca866 !important;
+    box-shadow: none !important;
+}
+
+/* إزالة كل الشادو والفلتر في اللايت مود نهائياً */
+html.theme-light *,
+html.theme-light *::before,
+html.theme-light *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+}
+
+/* هوفر كارد الاسكربت بدون شادو وبدون جلو */
+html.theme-light .tool-card:hover,
+html.theme-light .soon-card:hover,
+html.theme-light .contact-card:hover,
+html.theme-light .requirement-card:hover,
+html.theme-light .faq-item:hover,
+html.theme-light .promo-card:hover,
+html.theme-light .promo-shell:hover,
+html.theme-light .bonus-card:hover,
+html.theme-light .download-panel:hover {
+    box-shadow: none !important;
+    filter: none !important;
+    border-color: rgba(5, 143, 255, 0.28) !important;
+}
+
+/* منع جلو/ظل الهوفر في كروت اتصل بنا */
+html.theme-light .contact-card::before,
+html.theme-light .contact-card:hover::before,
+html.theme-light .tool-card::before,
+html.theme-light .tool-card:hover::before {
+    opacity: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+/* خلي الهوفر احترافي بدون ظل */
+html.theme-light .tool-card:hover,
+html.theme-light .contact-card:hover {
+    background: #ffffff !important;
+}
+
+/* أيقونات اتصل بنا بدون شادو */
+html.theme-light .contact-card>i,
+html.theme-light .contact-card:hover>i {
+    color: #058FFF !important;
+    background: #f2f8ff !important;
+    border: 1px solid rgba(5, 143, 255, 0.16) !important;
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+/* NOXIR في الفوتر: NOX أسود و IR أزرق */
+html.theme-light .main-footer .footer-logo {
+    color: #0c1628 !important;
+}
+
+html.theme-light .main-footer .footer-logo span {
+    color: #058FFF !important;
+}
+
+/* لأن عندك rule للفوتر كانت بتغير كل span للرمادي */
+html.theme-light .main-footer .footer-logo,
+html.theme-light .main-footer .footer-logo:visited,
+html.theme-light .main-footer .footer-logo:hover {
+    color: #0c1628 !important;
+}
+
+html.theme-light .main-footer .footer-logo span,
+html.theme-light .main-footer .footer-logo:hover span {
+    color: #058FFF !important;
+}
+
+/* تأكيد شكل الفوتر في اللايت */
+html.theme-light .main-footer {
+    background: #ffffff !important;
+    border-top: 1px solid rgba(15, 35, 70, 0.10) !important;
+    box-shadow: none !important;
+}
+
+/* منع أي شادو في أزرار اللايت مود */
+html.theme-light .nav-cta,
+html.theme-light .primary-btn,
+html.theme-light .secondary-btn,
+html.theme-light .android-download-btn,
+html.theme-light .download-btn,
+html.theme-light .promo-main-btn,
+html.theme-light .promo-code-box button,
+html.theme-light .tool-actions a,
+html.theme-light .tool-actions button,
+html.theme-light .nav-cta:hover,
+html.theme-light .primary-btn:hover,
+html.theme-light .secondary-btn:hover,
+html.theme-light .android-download-btn:hover,
+html.theme-light .download-btn:hover,
+html.theme-light .promo-main-btn:hover,
+html.theme-light .promo-code-box button:hover,
+html.theme-light .tool-actions a:hover,
+html.theme-light .tool-actions button:hover {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+}
+
+/* زر ابدأ الآن تحديداً */
+html.theme-light .nav-cta {
+    color: #ffffff !important;
+}
+
+/* الموبايل: منع خلفية سودا حوالين الهيدر أو القائمة */
+@media (max-width: 960px) {
+
+    html.theme-light .main-header,
+    html.theme-light .nav-menu,
+    html.theme-light .header-actions,
+    html.theme-light .menu-btn,
+    html.theme-light .theme-toggle {
+        box-shadow: none !important;
+    }
+
+    html.theme-light .nav-menu {
+        background: #ffffff !important;
+    }
+}
+
+/* أسماء المنصات غير النشطة في البرومو - لايت مود */
+html.theme-light .promo-tab:not(.active) span {
+    color: #2b3546 !important;
+}
+
+html.theme-light .promo-tab:not(.active) small {
+    color: #667386 !important;
+}
+
+/* لو فيه hover على التاب غير النشط يفضل واضح وراقي */
+html.theme-light .promo-tab:not(.active):hover span {
+    color: #18243a !important;
+}
+
+html.theme-light .promo-tab:not(.active):hover small {
+    color: #536477 !important;
+}
+
+/* أيقونات مميزات الهيرو في اللايت مود بدون كونتينر أو بوردر */
+html.theme-light .hero-features .feature-box i {
+    width: auto !important;
+    height: auto !important;
+    display: inline-block !important;
+    color: #058FFF !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    filter: none !important;
+    padding: 0 !important;
+}
+
+/* تأكيد عدم ظهور أي خلفية أو إطار وقت الهوفر */
+html.theme-light .hero-features .feature-box:hover i {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+/* =====================================================
+   CRASHFX SPLIT TITLE COLORS
+   ===================================================== */
+
+/* الدارك مود: CRASH أبيض و FX أزرق */
+.crashfx-title {
+    direction: ltr;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+.crashfx-title .crash-word {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+.crashfx-title .fx-word {
+    color: #058FFF !important;
+    -webkit-text-fill-color: #058FFF !important;
+}
+
+/* اللايت مود: CRASH أسود و FX أزرق */
+html.theme-light .crashfx-title .crash-word {
+    color: #0c1628 !important;
+    -webkit-text-fill-color: #0c1628 !important;
+}
+
+html.theme-light .crashfx-title .fx-word {
+    color: #058FFF !important;
+    -webkit-text-fill-color: #058FFF !important;
+}
+
+/* مقاس الاسم الصغير داخل كارد المعاينة */
+.crashfx-title.small {
+    font-size: 1.65rem !important;
+    font-weight: 900 !important;
+    letter-spacing: 1px;
+}
+
+/* =====================================================
+   FAQ LIGHT MODE - REMOVE HOVER SHADOW COMPLETELY
+   ===================================================== */
+
+/* عندك FAQ معمول بكلاسات faq-item / faq-question / faq-icon / faq-arrow */
+html.theme-light .faq-item,
+html.theme-light .faq-item:hover,
+html.theme-light .faq-item:focus,
+html.theme-light .faq-item:focus-within,
+html.theme-light .faq-item.active,
+html.theme-light .faq-item.active:hover {
+    box-shadow: none !important;
+    filter: none !important;
+    text-shadow: none !important;
+    background: #ffffff !important;
+    border-color: rgba(15, 35, 70, 0.10) !important;
+}
+
+/* إزالة أي تأثير ظل من السؤال نفسه */
+html.theme-light .faq-question,
+html.theme-light .faq-question:hover,
+html.theme-light .faq-question:focus {
+    box-shadow: none !important;
+    filter: none !important;
+    text-shadow: none !important;
+    background: transparent !important;
+}
+
+/* إزالة شادو/جلو من الأيقونات والسهم داخل FAQ */
+html.theme-light .faq-icon,
+html.theme-light .faq-icon:hover,
+html.theme-light .faq-arrow,
+html.theme-light .faq-arrow:hover,
+html.theme-light .faq-item.active .faq-arrow,
+html.theme-light .faq-item.active:hover .faq-arrow {
+    box-shadow: none !important;
+    filter: none !important;
+    text-shadow: none !important;
+}
+
+/* شيل أي pseudo hover ممكن يعمل جلو */
+html.theme-light .faq-item::before,
+html.theme-light .faq-item::after,
+html.theme-light .faq-item:hover::before,
+html.theme-light .faq-item:hover::after,
+html.theme-light .faq-section::before {
+    box-shadow: none !important;
+    filter: none !important;
+    background: none !important;
+    opacity: 0 !important;
+}
+
+/* FAQ Balance Note */
+.faq-balance-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 14px;
+    padding: 16px;
+    border-radius: 18px;
+    border: 1px solid rgba(5, 143, 255, 0.20);
+    background: rgba(5, 143, 255, 0.065);
+    color: #dff6ff;
+    line-height: 1.9;
+    font-weight: 800;
+    box-shadow: none !important;
+}
+
+.faq-balance-note i {
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #058FFF;
+    background: rgba(5, 143, 255, 0.10);
+    border: 1px solid rgba(5, 143, 255, 0.22);
+    font-size: 1.25rem;
+    box-shadow: none !important;
+}
+
+.faq-balance-note span {
+    color: inherit;
+}
+
+/* Light Mode */
+html.theme-light .faq-balance-note {
+    color: #253348 !important;
+    background: #f2f8ff !important;
+    border-color: rgba(5, 143, 255, 0.18) !important;
+    box-shadow: none !important;
+}
+
+html.theme-light .faq-balance-note i {
+    color: #058FFF !important;
+    background: #ffffff !important;
+    border-color: rgba(5, 143, 255, 0.18) !important;
+    box-shadow: none !important;
+}
+
+html.theme-light .faq-balance-note span {
+    color: #253348 !important;
+}
+
+/* أيقونة الأندرويد داخل جزء التحميل في اللايت مود */
+html.theme-light .download-icon i {
+    color: #ffffff !important;
+    background: #058FFF !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+/* تأكيد إن الأيقونة نفسها جوه الدائرة تبقى أبيض */
+html.theme-light .download-icon i::before {
+    color: #ffffff !important;
+}

@@ -29,7 +29,13 @@
         content="أداة مجانية لتحليل لعبة الطيارة وتوقع جولات Crash على 1xBet و MelBet و LineBet.">
     <link rel="shortcut icon" href="assets/fav.ico" type="image/x-icon">
 
-
+    <script>
+        (function () {
+            if (localStorage.getItem("noxir-theme") === "light") {
+                document.documentElement.classList.add("theme-light");
+            }
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
@@ -41,6 +47,7 @@
     <link rel="stylesheet" href="css/toolstyle.css">
     <link rel="stylesheet" href="css/customvideo.css">
     <link rel="stylesheet" href="css/promocodestyle.css">
+    <link rel="stylesheet" href="css/theme.css">
 </head>
 
 <body>
@@ -52,18 +59,24 @@
         <div class="container nav-wrap">
             <a href="index.html" class="logo">NOX<span>IR</span></a>
 
-            <button class="menu-btn" type="button" aria-label="فتح القائمة">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
             <nav class="nav-menu">
                 <a href="#video-guide">شرح طريقة الاستخدام</a>
                 <a href="#faq">الأسئلة الشائعة</a>
                 <a href="#offers">مكافئة مخصصة لك</a>
                 <a href="#download" class="nav-cta">تحميل الآن</a>
             </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="تفعيل اللايت مود">
+                    <i class="ri-sun-line"></i>
+                </button>
+
+                <button class="menu-btn" type="button" aria-label="فتح القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -77,7 +90,9 @@
                     </span>
 
                     <div class="tool-title-row">
-                        <h1>CRASHFX</h1>
+                        <h1 class="crashfx-title">
+                            <span class="crash-word">CRASH</span><span class="fx-word">FX</span>
+                        </h1>
 
                         <span class="free-badge">
                             <i class="ri-gift-line"></i>
@@ -132,7 +147,9 @@
                         <span>متصل الآن</span>
                     </div>
 
-                    <h3>CRASHFX</h3>
+                    <h3 class="crashfx-title small">
+                        <span class="crash-word">CRASH</span><span class="fx-word">FX</span>
+                    </h3>
                     <p>Smart Crash Analysis</p>
                 </div>
             </div>
@@ -255,10 +272,20 @@
                             <div class="faq-answer-inner">
                                 <p>
                                     الحد الأدنى المطلوب لتفعيل الاسكربت هو إيداع 30 دولار أو ما يعادل 1500 جنيه مصري
-                                    داخل
-                                    حسابك الجديد على منصة 1xBet أو MelBet أو LineBet، مع استخدام البروموكود الصحيح أثناء
+                                    داخل حسابك الجديد على منصة 1xBet أو MelBet أو LineBet، مع استخدام البروموكود الصحيح
+                                    أثناء
                                     التسجيل حتى يتم ربط الحساب بالأداة بشكل صحيح.
                                 </p>
+
+                                <div class="faq-balance-note">
+                                    <i class="ri-information-line"></i>
+                                    <span>
+                                        تنبيه مهم: هذا الرصيد لا يتم دفعه لنا ولا يُعتبر رسومًا لتفعيل الاسكربت، بل تقوم
+                                        بشحنه داخل حسابك
+                                        على المنصة التي اخترتها، وسيظل الرصيد متاحًا في حسابك ويمكنك استخدامه أو سحبه
+                                        حسب شروط المنصة.
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </article>

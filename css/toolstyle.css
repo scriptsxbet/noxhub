@@ -829,3 +829,27 @@
 .faq-title {
     color: #f5f8ff !important;
 }
+
+/* ===== TOOL PAGE REMOVE BLUE BACKGROUND GLOW ===== */
+
+.tool-preview,
+.requirement-card,
+.faq-item,
+.download-card,
+.activation-note {
+    background:
+        linear-gradient(180deg, rgba(9, 9, 11, 0.98), rgba(3, 3, 4, 0.99)) !important;
+    border-color: rgba(255, 255, 255, 0.075) !important;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.82) !important;
+}
+
+.tool-preview {
+    background:
+        radial-gradient(circle at 50% 26%, rgba(255, 255, 255, 0.03), transparent 38%),
+        linear-gradient(180deg, rgba(9, 9, 11, 0.98), rgba(3, 3, 4, 0.99)) !important;
+}
+
+.tool-preview-motion,
+.faq-section::before {
+    background: none !important;
+}

@@ -19,7 +19,13 @@
     <meta name="theme-color" content="#058FFF">
 
     <link rel="shortcut icon" href="assets/fav.ico" type="image/x-icon">
-
+    <script>
+        (function () {
+            if (localStorage.getItem("noxir-theme") === "light") {
+                document.documentElement.classList.add("theme-light");
+            }
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
@@ -30,6 +36,7 @@
     <link rel="stylesheet" href="css/mainstyle.css">
     <link rel="stylesheet" href="css/homestyle.css">
     <link rel="stylesheet" href="css/promocodestyle.css">
+    <link rel="stylesheet" href="css/theme.css">
 </head>
 
 <body>
@@ -41,18 +48,24 @@
         <div class="container nav-wrap">
             <a href="index.html" class="logo">NOX<span>IR</span></a>
 
-            <button class="menu-btn" type="button" aria-label="فتح القائمة">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
             <nav class="nav-menu">
                 <a href="#tools">الأدوات</a>
                 <a href="#offers">العروض</a>
                 <a href="#contact">تواصل معنا</a>
                 <a href="#tools" class="nav-cta">ابدأ الآن</a>
             </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="تفعيل اللايت مود">
+                    <i class="ri-sun-line"></i>
+                </button>
+
+                <button class="menu-btn" type="button" aria-label="فتح القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -75,9 +88,19 @@
 
                     <p>
                         اسكربتات تمنحك تحليلات دقيقة لكل جولة وتكشف الأنماط وتجعل فرص فوزك 100% بشكل مجاني تماماً.
-                    </p>
+                        على 1xBet و MelBet و LineBet </p>
 
                     <div class="hero-features">
+                        <div class="feature-box">
+                            <i class="ri-gift-line"></i>
+                            <strong>مجانا بالكامل</strong>
+                            <span>بدون رسوم</span>
+                        </div>
+                        <div class="feature-box">
+                            <i class="ri-layout-4-line"></i>
+                            <strong>يدعم كبرى المنصات</strong>
+                            <span>1xBet - MelBet - LineBet</span>
+                        </div>
                         <div class="feature-box">
                             <i class="ri-line-chart-line"></i>
                             <strong>تحليلات فورية</strong>
@@ -90,11 +113,7 @@
                             <span>قراءة ذكية</span>
                         </div>
 
-                        <div class="feature-box">
-                            <i class="ri-layout-4-line"></i>
-                            <strong>تصميم احترافي</strong>
-                            <span>ومريح</span>
-                        </div>
+
 
                         <div class="feature-box">
                             <i class="ri-lock-star-line"></i>
@@ -102,11 +121,7 @@
                             <span>أداء ثابت</span>
                         </div>
 
-                        <div class="feature-box">
-                            <i class="ri-gift-line"></i>
-                            <strong>مجانا بالكامل</strong>
-                            <span>بدون رسوم</span>
-                        </div>
+
                     </div>
                 </div>
 
