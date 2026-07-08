@@ -665,3 +665,122 @@
         font-size: 0.78rem;
     }
 }
+
+/* =====================================================
+   PROMO SECTION - DARK BLACK THEME
+   ===================================================== */
+
+.promo-shell {
+    border: 1px solid rgba(255, 255, 255, 0.075) !important;
+    background:
+        radial-gradient(circle at 20% 0%, rgba(5, 143, 255, 0.055), transparent 36%),
+        linear-gradient(180deg, rgba(11, 12, 17, 0.98), rgba(5, 6, 9, 0.99)) !important;
+    box-shadow: 0 34px 100px rgba(0, 0, 0, 0.72) !important;
+}
+
+.promo-shell::before {
+    background:
+        linear-gradient(120deg, transparent 0%, rgba(5, 143, 255, 0.045) 48%, transparent 72%) !important;
+    opacity: 0.7 !important;
+}
+
+.offer-kicker,
+.offer-safe,
+.promo-tab {
+    color: #dce5ee !important;
+    border: 1px solid rgba(255, 255, 255, 0.085) !important;
+    background: rgba(255, 255, 255, 0.035) !important;
+}
+
+.promo-tab:hover,
+.promo-tab.active {
+    color: #ffffff !important;
+    border-color: rgba(5, 143, 255, 0.32) !important;
+    background:
+        linear-gradient(135deg, rgba(5, 143, 255, 0.14), rgba(8, 9, 13, 0.96)) !important;
+    box-shadow: none !important;
+}
+
+.promo-card {
+    border: 1px solid rgba(255, 255, 255, 0.075) !important;
+    background:
+        radial-gradient(circle at 82% 22%, rgba(5, 143, 255, 0.055), transparent 32%),
+        radial-gradient(circle at 10% 90%, rgba(5, 143, 255, 0.035), transparent 36%),
+        linear-gradient(135deg, rgba(11, 12, 17, 0.99), rgba(5, 6, 9, 0.99)) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.045),
+        0 26px 85px rgba(0, 0, 0, 0.68) !important;
+}
+
+.promo-card::before {
+    background:
+        linear-gradient(115deg, transparent 10%, rgba(5, 143, 255, 0.055) 46%, transparent 70%) !important;
+}
+
+.promo-light {
+    background: rgba(5, 143, 255, 0.055) !important;
+}
+
+.promo-text h3 {
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
+.promo-text h3 em {
+    color: #35b8ff !important;
+    text-shadow: none !important;
+}
+
+.promo-lead {
+    color: #c8d2df !important;
+}
+
+.promo-benefits div,
+.promo-code-box,
+.bonus-card,
+.float-chip {
+    border: 1px solid rgba(255, 255, 255, 0.075) !important;
+    background:
+        linear-gradient(180deg, rgba(16, 18, 24, 0.96), rgba(7, 8, 12, 0.98)) !important;
+    box-shadow: none !important;
+}
+
+.promo-benefits span,
+.code-info span {
+    color: #9aa6b5 !important;
+}
+
+.promo-code-box {
+    border-style: dashed !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+.promo-code-box button,
+.promo-main-btn {
+    color: #ffffff !important;
+    background: #058FFF !important;
+    border: 1px solid #058FFF !important;
+    box-shadow: none !important;
+}
+
+.promo-code-box button:hover,
+.promo-main-btn:hover {
+    background: #0077ff !important;
+    border-color: #0077ff !important;
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+.bonus-ring {
+    border-color: rgba(5, 143, 255, 0.16) !important;
+}
+
+.bonus-percent strong,
+.bonus-percent span,
+.bonus-mini-code b {
+    color: #35b8ff !important;
+}
+
+.promo-trust span {
+    color: #c8d2df !important;
+}

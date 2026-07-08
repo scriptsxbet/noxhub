@@ -726,3 +726,106 @@
 .faq-item {
     scroll-margin-top: 96px;
 }
+
+/* =====================================================
+   CRASHFX PAGE - DARK BLACK THEME
+   ===================================================== */
+
+.tool-title-row h1 {
+    color: #ffffff !important;
+    text-shadow: 0 0 22px rgba(5, 143, 255, 0.12) !important;
+}
+
+.tool-info>p {
+    color: #c8d2df !important;
+}
+
+.free-badge {
+    color: #d9ffe9 !important;
+    background: rgba(61, 255, 151, 0.055) !important;
+    border: 1px solid rgba(61, 255, 151, 0.16) !important;
+}
+
+.tool-platforms div,
+.requirement-card,
+.faq-item,
+.download-card {
+    border: 1px solid rgba(255, 255, 255, 0.075) !important;
+    background:
+        linear-gradient(180deg, rgba(11, 12, 17, 0.98), rgba(5, 6, 9, 0.99)) !important;
+    box-shadow: 0 26px 85px rgba(0, 0, 0, 0.68) !important;
+}
+
+.tool-platforms div {
+    background: rgba(255, 255, 255, 0.035) !important;
+}
+
+.tool-platforms span {
+    color: #35b8ff !important;
+    background: rgba(5, 143, 255, 0.055) !important;
+}
+
+.tool-preview {
+    border: 1px solid rgba(255, 255, 255, 0.075) !important;
+    background:
+        radial-gradient(circle at 50% 26%, rgba(5, 143, 255, 0.075), transparent 38%),
+        linear-gradient(180deg, rgba(11, 12, 17, 0.98), rgba(5, 6, 9, 0.99)) !important;
+    box-shadow: 0 30px 95px rgba(0, 0, 0, 0.72) !important;
+}
+
+.tool-preview-motion {
+    background:
+        linear-gradient(115deg, transparent 35%, rgba(5, 143, 255, 0.055), transparent 65%),
+        repeating-linear-gradient(0deg, transparent 0 14px, rgba(255, 255, 255, 0.018) 15px) !important;
+}
+
+.preview-icon {
+    background: rgba(8, 9, 13, 0.98) !important;
+    border: 1px solid rgba(5, 143, 255, 0.20) !important;
+    box-shadow: none !important;
+}
+
+.tool-preview h3,
+.requirement-card b {
+    color: #35b8ff !important;
+}
+
+.requirement-card:hover,
+.faq-item.active {
+    border-color: rgba(5, 143, 255, 0.30) !important;
+    box-shadow: 0 30px 95px rgba(0, 0, 0, 0.76) !important;
+}
+
+.requirement-card p,
+.activation-note p,
+.faq-answer p {
+    color: #c3cedb !important;
+}
+
+.activation-note {
+    border: 1px solid rgba(255, 255, 255, 0.085) !important;
+    background:
+        linear-gradient(135deg, rgba(12, 13, 18, 0.98), rgba(5, 6, 9, 0.98)) !important;
+    box-shadow: 0 22px 75px rgba(0, 0, 0, 0.62) !important;
+}
+
+.activation-note i,
+.faq-icon,
+.faq-arrow {
+    color: #35b8ff !important;
+    background: rgba(5, 143, 255, 0.055) !important;
+    border: 1px solid rgba(5, 143, 255, 0.16) !important;
+    box-shadow: none !important;
+}
+
+.faq-section::before {
+    background: radial-gradient(circle, rgba(5, 143, 255, 0.055), transparent 68%) !important;
+}
+
+.faq-question {
+    background: transparent !important;
+}
+
+.faq-title {
+    color: #f5f8ff !important;
+}

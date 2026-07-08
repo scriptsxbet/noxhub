@@ -536,3 +536,167 @@ footer {
         left: -135px;
     }
 }
+
+/* =====================================================
+   NOXIR DARK BLACK THEME - GLOBAL OVERRIDE
+   ===================================================== */
+
+:root {
+    --bg: #030304;
+    --bg-soft: #07080b;
+    --card: rgba(10, 11, 15, 0.94);
+    --card-dark: rgba(5, 6, 9, 0.98);
+    --line: rgba(255, 255, 255, 0.09);
+    --line-strong: rgba(5, 143, 255, 0.32);
+    --text: #f7fbff;
+    --muted: #9aa6b5;
+    --muted-2: #657181;
+    --blue: #058FFF;
+    --blue-2: #35b8ff;
+    --blue-3: #0067d9;
+    --green: #3dff97;
+    --orange: #ffc857;
+    --red: #ff4d6d;
+    --shadow: 0 28px 85px rgba(0, 0, 0, 0.72);
+    --glow: 0 0 26px rgba(5, 143, 255, 0.10);
+}
+
+html,
+body {
+    background: #030304 !important;
+}
+
+body {
+    background:
+        radial-gradient(circle at 18% 8%, rgba(5, 143, 255, 0.075), transparent 28%),
+        radial-gradient(circle at 88% 24%, rgba(53, 184, 255, 0.045), transparent 26%),
+        linear-gradient(135deg, #020203 0%, #050608 46%, #030304 100%) !important;
+}
+
+body::before {
+    background:
+        linear-gradient(120deg, rgba(5, 143, 255, 0.035), transparent 34%),
+        linear-gradient(300deg, rgba(53, 184, 255, 0.025), transparent 42%) !important;
+    opacity: 1 !important;
+}
+
+body::after {
+    background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.025), transparent 1px),
+        radial-gradient(circle at 70% 60%, rgba(5, 143, 255, 0.035), transparent 1px) !important;
+    background-size: 100px 100px, 150px 150px !important;
+    opacity: 0.32 !important;
+}
+
+.site-orb {
+    opacity: 0.55 !important;
+    filter: blur(65px) !important;
+}
+
+.orb-one {
+    background: rgba(5, 143, 255, 0.07) !important;
+}
+
+.orb-two {
+    background: rgba(53, 184, 255, 0.045) !important;
+}
+
+.main-header {
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: rgba(5, 6, 9, 0.82) !important;
+    box-shadow:
+        0 24px 75px rgba(0, 0, 0, 0.72),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045) !important;
+}
+
+.logo,
+.footer-logo {
+    color: #ffffff !important;
+    text-shadow: 0 0 18px rgba(5, 143, 255, 0.18) !important;
+}
+
+.nav-menu a {
+    color: #dce5ee !important;
+}
+
+.nav-menu a:not(.nav-cta):hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.055) !important;
+}
+
+.menu-btn {
+    background: rgba(8, 9, 13, 0.95) !important;
+    border-color: rgba(255, 255, 255, 0.11) !important;
+}
+
+.eyebrow {
+    color: var(--blue-2) !important;
+    background: rgba(5, 143, 255, 0.065) !important;
+    border: 1px solid rgba(5, 143, 255, 0.18) !important;
+}
+
+.section-title span {
+    background: linear-gradient(90deg, transparent, rgba(5, 143, 255, 0.45), transparent) !important;
+}
+
+.section-title h2 {
+    color: #ffffff !important;
+    text-shadow: 0 0 20px rgba(5, 143, 255, 0.12) !important;
+}
+
+.nav-cta,
+.primary-btn,
+.android-download-btn,
+.download-btn {
+    color: #ffffff !important;
+    background: #058FFF !important;
+    border: 1px solid #058FFF !important;
+    box-shadow: none !important;
+}
+
+.nav-cta:hover,
+.primary-btn:hover,
+.android-download-btn:hover,
+.download-btn:hover {
+    background: #0077ff !important;
+    border-color: #0077ff !important;
+    box-shadow: none !important;
+    filter: none !important;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    color: #f2f7ff !important;
+    background: rgba(255, 255, 255, 0.045) !important;
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+    box-shadow: none !important;
+}
+
+.secondary-btn:hover {
+    color: #ffffff !important;
+    background: rgba(5, 143, 255, 0.12) !important;
+    border-color: rgba(5, 143, 255, 0.35) !important;
+}
+
+.main-footer {
+    background: #030304 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+.toast {
+    background: rgba(8, 9, 13, 0.96) !important;
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.65) !important;
+}
+
+/* ===== LOGO COLOR SPLIT ===== */
+.logo,
+.footer-logo {
+    color: #ffffff !important;
+}
+
+.logo span,
+.footer-logo span {
+    color: #058FFF !important;
+    text-shadow: 0 0 14px rgba(5, 143, 255, 0.22);
+}
