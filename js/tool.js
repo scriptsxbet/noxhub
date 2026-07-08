@@ -15,8 +15,6 @@ const androidDownloadBtn = document.getElementById("androidDownloadBtn");
 const lessonVideo = document.getElementById("lessonVideo");
 const faqItems = document.querySelectorAll("[data-faq-item]");
 
-let faqScrollTimer = null;
-
 if (androidDownloadBtn) {
     androidDownloadBtn.href = TOOL_CONFIG.downloadUrl;
 
@@ -81,32 +79,6 @@ function pauseFaqVideo(item, reset = true) {
     }
 }
 
-function getHeaderOffset() {
-    const header = document.querySelector(".main-header");
-
-    if (!header) return 18;
-
-    return header.offsetHeight + 18;
-}
-
-function scrollToFaqItemStart(item) {
-    if (!item) return;
-
-    if (faqScrollTimer) {
-        clearTimeout(faqScrollTimer);
-        faqScrollTimer = null;
-    }
-
-    faqScrollTimer = setTimeout(() => {
-        const targetTop = item.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
-
-        window.scrollTo({
-            top: Math.max(0, targetTop),
-            behavior: "smooth"
-        });
-    }, 360);
-}
-
 function closeFaqItem(item) {
     if (!item) return;
 
@@ -139,7 +111,6 @@ function openFaqItem(item) {
     }
 
     loadFaqVideo(item);
-    scrollToFaqItemStart(item);
 }
 
 faqItems.forEach((item) => {
