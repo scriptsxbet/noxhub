@@ -1,0 +1,667 @@
+.promo-section {
+    position: relative;
+}
+
+.promo-shell {
+    position: relative;
+    padding: 18px;
+    border-radius: 34px;
+    border: 1px solid rgba(72, 202, 255, 0.22);
+    background:
+        radial-gradient(circle at 20% 0%, rgba(15, 141, 255, 0.18), transparent 34%),
+        linear-gradient(180deg, rgba(7, 22, 43, 0.72), rgba(2, 9, 21, 0.96));
+    box-shadow:
+        0 34px 100px rgba(0, 0, 0, 0.42),
+        0 0 70px rgba(15, 141, 255, 0.13),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+}
+
+.promo-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(120deg, transparent 0%, rgba(66, 220, 255, 0.08) 45%, transparent 70%);
+    opacity: 0.75;
+}
+
+.offer-topbar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.offer-kicker,
+.offer-safe {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    width: fit-content;
+    padding: 10px 15px;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 900;
+    border: 1px solid rgba(66, 220, 255, 0.2);
+    background: rgba(255, 255, 255, 0.045);
+    color: #dff5ff;
+}
+
+.offer-kicker i {
+    color: var(--orange);
+}
+
+.offer-safe {
+    color: var(--green);
+}
+
+.promo-tabs {
+    position: relative;
+    z-index: 2;
+    direction: rtl;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.promo-tab {
+    min-height: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: 1px solid rgba(84, 171, 255, 0.18);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #dcecff;
+    cursor: pointer;
+    transition: 0.24s ease;
+}
+
+.promo-tab span {
+    font-size: 1.05rem;
+    font-weight: 900;
+}
+
+.promo-tab small {
+    color: var(--muted);
+    font-size: 0.76rem;
+    font-weight: 800;
+}
+
+.promo-tab:hover,
+.promo-tab.active {
+    transform: translateY(-2px);
+    color: #ffffff;
+    border-color: rgba(66, 220, 255, 0.68);
+    background:
+        linear-gradient(135deg, rgba(15, 141, 255, 0.34), rgba(2, 11, 24, 0.9));
+    box-shadow:
+        0 18px 42px rgba(15, 141, 255, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.promo-card {
+    position: relative;
+    z-index: 2;
+    direction: rtl;
+    min-height: 460px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) 390px;
+    align-items: center;
+    gap: 36px;
+    padding: 48px;
+    border-radius: 30px;
+    border: 1px solid rgba(66, 220, 255, 0.24);
+    background:
+        radial-gradient(circle at 82% 22%, rgba(66, 220, 255, 0.2), transparent 30%),
+        radial-gradient(circle at 10% 90%, rgba(15, 141, 255, 0.16), transparent 34%),
+        linear-gradient(135deg, rgba(4, 28, 58, 0.98), rgba(2, 9, 22, 0.98));
+    overflow: hidden;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 26px 70px rgba(0, 0, 0, 0.32);
+}
+
+.promo-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    pointer-events: none;
+    background:
+        linear-gradient(115deg, transparent 10%, rgba(66, 220, 255, 0.1) 45%, transparent 68%);
+    transform: translateX(-55%) rotate(6deg);
+    animation: promoSweep 7.5s ease-in-out infinite;
+}
+
+.promo-light {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    right: 52%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: rgba(15, 141, 255, 0.16);
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.promo-text {
+    position: relative;
+    z-index: 3;
+    text-align: right;
+}
+
+.promo-overline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    padding: 10px 16px;
+    margin-bottom: 18px;
+    border-radius: 999px;
+    color: var(--orange);
+    background: rgba(255, 200, 87, 0.08);
+    border: 1px solid rgba(255, 200, 87, 0.26);
+    font-weight: 900;
+}
+
+.promo-text h3 {
+    color: #ffffff;
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    font-weight: 900;
+    line-height: 1.18;
+    max-width: 720px;
+    margin-bottom: 16px;
+    text-shadow: 0 0 28px rgba(66, 220, 255, 0.18);
+}
+
+.promo-text h3 em {
+    direction: ltr;
+    display: inline-block;
+    color: var(--blue-2);
+    font-style: normal;
+    text-shadow: 0 0 24px rgba(66, 220, 255, 0.4);
+}
+
+.promo-lead {
+    max-width: 670px;
+    color: #dcecff;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-weight: 800;
+    line-height: 1.9;
+    margin-bottom: 22px;
+}
+
+.promo-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.promo-benefits div {
+    padding: 16px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(66, 220, 255, 0.17);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.promo-benefits strong {
+    direction: ltr;
+    display: block;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 900;
+    margin-bottom: 4px;
+}
+
+.promo-benefits span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.84rem;
+    font-weight: 800;
+}
+
+.promo-code-box {
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    width: min(100%, 520px);
+    padding: 10px;
+    margin-bottom: 14px;
+    border-radius: 24px;
+    border: 1px dashed rgba(255, 255, 255, 0.42);
+    background: rgba(2, 11, 24, 0.72);
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.code-info {
+    flex: 1;
+    padding-inline: 14px;
+}
+
+.code-info span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.code-info b {
+    display: block;
+    color: #ffffff;
+    font-size: clamp(1.9rem, 4vw, 2.7rem);
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.promo-code-box button {
+    width: 62px;
+    height: 62px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 19px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1191ff, #075ee2);
+    box-shadow: 0 16px 36px rgba(15, 141, 255, 0.36);
+    cursor: pointer;
+    transition: 0.22s ease;
+}
+
+.promo-code-box button i {
+    font-size: 1.55rem;
+}
+
+.promo-code-box button:hover {
+    transform: translateY(-2px) scale(1.04);
+    filter: brightness(1.1);
+}
+
+.promo-main-btn {
+    width: min(100%, 520px);
+    min-height: 62px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border: 0;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    background:
+        linear-gradient(135deg, #42dcff 0%, #0f8dff 42%, #075ee4 100%);
+    box-shadow:
+        0 22px 54px rgba(15, 141, 255, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    transition: 0.24s ease;
+}
+
+.promo-main-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.08);
+    box-shadow:
+        0 28px 70px rgba(15, 141, 255, 0.52),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.promo-main-btn span {
+    direction: ltr;
+}
+
+.promo-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.promo-trust span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 12px;
+    border-radius: 999px;
+    color: #cfeeff;
+    background: rgba(66, 220, 255, 0.07);
+    border: 1px solid rgba(66, 220, 255, 0.14);
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+.promo-trust i {
+    color: var(--green);
+}
+
+.promo-visual {
+    position: relative;
+    z-index: 3;
+    min-height: 360px;
+    display: grid;
+    place-items: center;
+}
+
+.bonus-orbit {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    display: grid;
+    place-items: center;
+}
+
+.bonus-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(66, 220, 255, 0.22);
+    box-shadow: 0 0 45px rgba(15, 141, 255, 0.12);
+}
+
+.ring-one {
+    animation: rotateRing 16s linear infinite;
+}
+
+.ring-two {
+    inset: 34px;
+    border-color: rgba(255, 200, 87, 0.18);
+    animation: rotateRing 11s linear infinite reverse;
+}
+
+.bonus-card {
+    position: relative;
+    z-index: 4;
+    width: 245px;
+    min-height: 285px;
+    padding: 22px;
+    border-radius: 30px;
+    border: 1px solid rgba(66, 220, 255, 0.32);
+    background:
+        radial-gradient(circle at 70% 15%, rgba(66, 220, 255, 0.22), transparent 34%),
+        linear-gradient(160deg, rgba(7, 36, 75, 0.98), rgba(2, 11, 24, 0.98));
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.42),
+        0 0 65px rgba(15, 141, 255, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transform: perspective(700px) rotateY(-10deg) rotateZ(-2deg);
+    animation: bonusFloat 3.4s ease-in-out infinite;
+}
+
+.bonus-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    direction: ltr;
+    margin-bottom: 28px;
+}
+
+.bonus-head span {
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 900;
+}
+
+.bonus-head i {
+    color: var(--orange);
+    font-size: 1.35rem;
+}
+
+.bonus-percent {
+    direction: ltr;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    line-height: 0.9;
+}
+
+.bonus-percent strong {
+    color: #ffffff;
+    font-size: 5.8rem;
+    font-weight: 900;
+    letter-spacing: -5px;
+    text-shadow:
+        0 0 38px rgba(66, 220, 255, 0.42),
+        0 20px 42px rgba(0, 0, 0, 0.3);
+}
+
+.bonus-percent span {
+    color: var(--blue-2);
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-top: 8px;
+}
+
+.bonus-card p {
+    text-align: center;
+    direction: ltr;
+    color: var(--muted);
+    font-weight: 900;
+    margin: 8px 0 18px;
+}
+
+.bonus-mini-code {
+    direction: ltr;
+    padding: 12px;
+    border-radius: 18px;
+    text-align: center;
+    background: rgba(2, 11, 24, 0.68);
+    border: 1px dashed rgba(255, 255, 255, 0.32);
+}
+
+.bonus-mini-code small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.68rem;
+    font-weight: 900;
+    margin-bottom: 4px;
+}
+
+.bonus-mini-code b {
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.float-chip {
+    position: absolute;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 13px;
+    border-radius: 999px;
+    color: #ffffff;
+    font-weight: 900;
+    background: rgba(2, 11, 24, 0.78);
+    border: 1px solid rgba(66, 220, 255, 0.26);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(12px);
+}
+
+.chip-one {
+    top: 30px;
+    right: 8px;
+    color: var(--orange);
+    animation: chipFloat 3s ease-in-out infinite;
+}
+
+.chip-two {
+    bottom: 34px;
+    left: 0;
+    color: var(--blue-2);
+    animation: chipFloat 3.4s ease-in-out infinite reverse;
+}
+
+.promo-disclaimer {
+    position: relative;
+    z-index: 2;
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.86rem;
+    font-weight: 700;
+    line-height: 1.8;
+    margin-top: 14px;
+}
+
+@keyframes bonusFloat {
+
+    0%,
+    100% {
+        transform: perspective(700px) rotateY(-10deg) rotateZ(-2deg) translateY(0);
+    }
+
+    50% {
+        transform: perspective(700px) rotateY(-10deg) rotateZ(-2deg) translateY(-12px);
+    }
+}
+
+@keyframes chipFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+@keyframes rotateRing {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes promoSweep {
+
+    0%,
+    45% {
+        transform: translateX(-55%) rotate(6deg);
+    }
+
+    75%,
+    100% {
+        transform: translateX(55%) rotate(6deg);
+    }
+}
+
+@media (max-width: 980px) {
+    .promo-card {
+        grid-template-columns: 1fr;
+        padding: 34px 24px;
+        gap: 24px;
+    }
+
+    .promo-visual {
+        order: -1;
+        min-height: 330px;
+    }
+
+    .promo-text {
+        text-align: center;
+    }
+
+    .promo-text h3,
+    .promo-lead {
+        margin-inline: auto;
+    }
+
+    .promo-code-box,
+    .promo-main-btn {
+        margin-inline: auto;
+    }
+
+    .promo-trust {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 680px) {
+    .promo-shell {
+        padding: 11px;
+        border-radius: 26px;
+    }
+
+    .offer-topbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .offer-kicker,
+    .offer-safe {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .promo-tabs {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .promo-tab {
+        min-height: 62px;
+    }
+
+    .promo-card {
+        padding: 26px 15px;
+        border-radius: 24px;
+        min-height: auto;
+    }
+
+    .promo-benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .promo-code-box {
+        width: 100%;
+    }
+
+    .promo-code-box button {
+        width: 56px;
+        height: 56px;
+        border-radius: 17px;
+    }
+
+    .bonus-orbit {
+        width: 260px;
+        height: 260px;
+    }
+
+    .bonus-card {
+        width: 220px;
+        min-height: 260px;
+    }
+
+    .bonus-percent strong {
+        font-size: 4.9rem;
+    }
+
+    .float-chip {
+        font-size: 0.78rem;
+    }
+}

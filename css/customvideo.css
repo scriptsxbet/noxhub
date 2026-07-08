@@ -1,0 +1,248 @@
+.video-section {
+    padding-top: 42px;
+}
+
+/* على الشاشات الكبيرة: الفيديو بعرض الصفحة وشكل عريض */
+.custom-video-player {
+    position: relative;
+    width: 100%;
+    max-width: 1180px;
+    aspect-ratio: 16 / 9;
+    margin-inline: auto;
+    border-radius: 34px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid rgba(66, 220, 255, 0.26);
+    box-shadow:
+        0 34px 95px rgba(0, 0, 0, .48),
+        0 0 54px rgba(15, 141, 255, .16);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.custom-video-player::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, .06),
+        inset 0 -120px 120px rgba(0, 0, 0, .38);
+}
+
+.custom-video-player video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.center-play {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    margin: auto;
+    width: 86px;
+    height: 86px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(66, 220, 255, 0.42);
+    color: #fff;
+    background: rgba(3, 13, 28, 0.74);
+    backdrop-filter: blur(14px);
+    box-shadow:
+        0 0 36px rgba(66, 220, 255, .28),
+        0 20px 60px rgba(0, 0, 0, .38);
+    cursor: pointer;
+    transition: 0.22s ease;
+}
+
+.center-play i {
+    font-size: 2.45rem;
+}
+
+.center-play:hover {
+    transform: scale(1.08);
+}
+
+.custom-video-player.playing .center-play {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.82);
+}
+
+.video-controls {
+    position: absolute;
+    right: 18px;
+    left: 18px;
+    bottom: 18px;
+    z-index: 6;
+    display: grid;
+    grid-template-columns: 42px auto 1fr 42px 42px;
+    align-items: center;
+    gap: 12px;
+    padding: 13px;
+    border-radius: 21px;
+    background: rgba(2, 11, 24, 0.76);
+    border: 1px solid rgba(66, 220, 255, 0.18);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, .28);
+}
+
+.video-controls button {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 13px;
+    color: #fff;
+    background: rgba(255, 255, 255, .08);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.video-controls button:hover {
+    background: rgba(66, 220, 255, .16);
+    transform: translateY(-1px);
+}
+
+.video-controls i {
+    font-size: 1.28rem;
+}
+
+.video-time {
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #dcecff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.video-progress {
+    position: relative;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .15);
+    cursor: pointer;
+    touch-action: none;
+}
+
+.video-progress-fill {
+    position: absolute;
+    inset-block: 0;
+    right: 0;
+    width: 0%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--blue), var(--blue-2));
+    box-shadow: 0 0 16px rgba(66, 220, 255, .55);
+}
+
+.video-progress-thumb {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    transform: translate(50%, -50%);
+    box-shadow: 0 0 18px rgba(66, 220, 255, .75);
+}
+
+/* التابلت يفضل عريض ومتناسق */
+@media (max-width: 900px) {
+    .custom-video-player {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 28px;
+    }
+
+    .video-controls {
+        right: 12px;
+        left: 12px;
+        bottom: 12px;
+        gap: 10px;
+        padding: 12px;
+    }
+}
+
+/* الموبايل: الفيديو بالطول */
+@media (max-width: 600px) {
+    .custom-video-player {
+        width: min(100%, 430px);
+        aspect-ratio: 9 / 16;
+        border-radius: 25px;
+    }
+
+    .custom-video-player::before {
+        box-shadow:
+            inset 0 0 0 1px rgba(255, 255, 255, .06),
+            inset 0 -95px 95px rgba(0, 0, 0, .38);
+    }
+
+    .center-play {
+        width: 78px;
+        height: 78px;
+    }
+
+    .center-play i {
+        font-size: 2.25rem;
+    }
+
+    .video-controls {
+        right: 10px;
+        left: 10px;
+        bottom: 10px;
+        grid-template-columns: 38px 1fr 38px 38px;
+        gap: 9px;
+        padding: 10px;
+        border-radius: 18px;
+    }
+
+    .video-controls button {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+    }
+
+    .video-controls i {
+        font-size: 1.22rem;
+    }
+
+    .video-time {
+        display: none;
+    }
+
+    .video-progress {
+        height: 7px;
+    }
+
+    .video-progress-thumb {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* لو الموبايل بالعرض: خليه عريض عشان مايبقاش طويل ومزعج */
+@media (orientation: landscape) and (max-height: 520px) {
+    .custom-video-player {
+        width: min(100%, 760px);
+        aspect-ratio: 16 / 9;
+        border-radius: 22px;
+    }
+
+    .video-controls {
+        right: 10px;
+        left: 10px;
+        bottom: 10px;
+    }
+}
