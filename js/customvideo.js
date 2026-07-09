@@ -6,6 +6,7 @@ if (player && video) {
     const playToggle = player.querySelector(".play-toggle");
     const soundToggle = player.querySelector(".sound-toggle");
     const fullscreenToggle = player.querySelector(".fullscreen-toggle");
+    const videoControls = player.querySelector(".video-controls");
     const progress = player.querySelector("[data-progress]");
     const progressFill = player.querySelector(".video-progress-fill");
     const progressThumb = player.querySelector(".video-progress-thumb");
@@ -13,7 +14,6 @@ if (player && video) {
     const durationTimeText = player.querySelector(".duration-time");
 
     let controlsTimer = null;
-    let centerIconTimer = null;
     let isDragging = false;
 
     video.muted = false;
@@ -32,19 +32,29 @@ if (player && video) {
         return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
     }
 
-    function updateTime() {
-        const percent = video.duration ? (video.currentTime / video.duration) * 100 : 0;
-
-        progressFill.style.width = `${percent}%`;
-        progressThumb.style.right = `${percent}%`;
-
-        currentTimeText.textContent = formatTime(video.currentTime);
-        durationTimeText.textContent = formatTime(video.duration);
-    }
-
     function setIcon(button, iconClass) {
         if (!button) return;
         button.innerHTML = `<i class="${iconClass}"></i>`;
+    }
+
+    function updateTime() {
+        const percent = video.duration ? (video.currentTime / video.duration) * 100 : 0;
+
+        if (progressFill) {
+            progressFill.style.width = `${percent}%`;
+        }
+
+        if (progressThumb) {
+            progressThumb.style.right = `${percent}%`;
+        }
+
+        if (currentTimeText) {
+            currentTimeText.textContent = formatTime(video.currentTime);
+        }
+
+        if (durationTimeText) {
+            durationTimeText.textContent = formatTime(video.duration);
+        }
     }
 
     function clearControlsTimer() {
@@ -54,56 +64,19 @@ if (player && video) {
         }
     }
 
-    function clearCenterIconTimer() {
-        if (centerIconTimer) {
-            clearTimeout(centerIconTimer);
-            centerIconTimer = null;
-        }
-    }
+    function hideControlsAfterDelay() {
+        clearControlsTimer();
 
-    function hideControls() {
         if (!video.paused) {
-            player.classList.add("controls-hidden");
+            controlsTimer = setTimeout(() => {
+                player.classList.add("controls-hidden");
+            }, 5000);
         }
     }
 
     function showControls() {
         player.classList.remove("controls-hidden");
-
-        clearControlsTimer();
-
-        if (!video.paused) {
-            controlsTimer = setTimeout(() => {
-                hideControls();
-            }, 5000);
-        }
-    }
-
-    function hideCenterIcon() {
-        if (!video.paused) {
-            player.classList.remove("show-center");
-        }
-    }
-
-    function showCenterPauseIcon() {
-        if (video.paused) return;
-
-        setIcon(centerPlay, "ri-pause-fill");
-        player.classList.add("show-center");
-
-        clearCenterIconTimer();
-
-        centerIconTimer = setTimeout(() => {
-            hideCenterIcon();
-        }, 2000);
-    }
-
-    function togglePlay() {
-        if (video.paused) {
-            video.play();
-        } else {
-            video.pause();
-        }
+        hideControlsAfterDelay();
     }
 
     function updatePlayState() {
@@ -119,20 +92,92 @@ if (player && video) {
             showControls();
         } else {
             clearControlsTimer();
-            clearCenterIconTimer();
 
             player.classList.remove("controls-hidden");
             player.classList.add("show-center");
         }
     }
 
+    function togglePlay() {
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    }
+
     function toggleSound() {
         video.muted = !video.muted;
+
         setIcon(soundToggle, video.muted ? "ri-volume-mute-line" : "ri-volume-up-line");
+
         showControls();
     }
 
+    function isFullscreenActive() {
+        return (
+            document.fullscreenElement === player ||
+            document.webkitFullscreenElement === player ||
+            video.webkitDisplayingFullscreen
+        );
+    }
+
+    function updateFullscreenIcon() {
+        const active = isFullscreenActive();
+
+        setIcon(
+            fullscreenToggle,
+            active ? "ri-fullscreen-exit-line" : "ri-fullscreen-line"
+        );
+    }
+
+    async function enterFullscreen() {
+        try {
+            if (player.requestFullscreen) {
+                await player.requestFullscreen();
+            } else if (player.webkitRequestFullscreen) {
+                player.webkitRequestFullscreen();
+            } else if (video.requestFullscreen) {
+                await video.requestFullscreen();
+            } else if (video.webkitEnterFullscreen) {
+                video.webkitEnterFullscreen();
+            }
+        } catch (error) {
+            console.warn("Fullscreen enter skipped:", error);
+        }
+
+        updateFullscreenIcon();
+        showControls();
+    }
+
+    async function exitFullscreen() {
+        try {
+            if (document.fullscreenElement && document.exitFullscreen) {
+                await document.exitFullscreen();
+            } else if (document.webkitFullscreenElement && document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (video.webkitDisplayingFullscreen && video.webkitExitFullscreen) {
+                video.webkitExitFullscreen();
+            }
+        } catch (error) {
+            console.warn("Fullscreen exit skipped:", error);
+        }
+
+        updateFullscreenIcon();
+        showControls();
+    }
+
+    async function toggleFullscreen() {
+        if (isFullscreenActive()) {
+            await exitFullscreen();
+        } else {
+            await enterFullscreen();
+        }
+    }
+
     function seekByPointer(event) {
+        if (!progress || !video.duration) return;
+
         const rect = progress.getBoundingClientRect();
         const clientX = event.clientX;
 
@@ -142,33 +187,54 @@ if (player && video) {
         video.currentTime = percent * video.duration;
     }
 
-    centerPlay.addEventListener("click", (event) => {
+    if (videoControls) {
+        videoControls.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
+
+        videoControls.addEventListener("pointerdown", (event) => {
+            event.stopPropagation();
+        });
+    }
+
+    centerPlay?.addEventListener("click", (event) => {
         event.stopPropagation();
         togglePlay();
     });
 
-    playToggle.addEventListener("click", (event) => {
+    playToggle?.addEventListener("click", (event) => {
         event.stopPropagation();
         togglePlay();
         showControls();
     });
 
-    soundToggle.addEventListener("click", (event) => {
+    soundToggle?.addEventListener("click", (event) => {
         event.stopPropagation();
         toggleSound();
     });
 
-    fullscreenToggle.addEventListener("click", async (event) => {
+    fullscreenToggle?.addEventListener("click", async (event) => {
         event.stopPropagation();
-        showControls();
-
-        if (!document.fullscreenElement) {
-            await player.requestFullscreen?.();
-        } else {
-            await document.exitFullscreen?.();
-        }
+        await toggleFullscreen();
     });
 
+    /*
+        أي ضغطة على مساحة الفيديو نفسها:
+        - لو واقف: يشغل
+        - لو شغال: يوقف
+        بشرط ألا تكون الضغطة على شريط التحكم
+    */
+    player.addEventListener("click", (event) => {
+        if (event.target.closest(".video-controls")) return;
+        if (event.target.closest(".center-play")) return;
+
+        togglePlay();
+    });
+
+    /*
+        الحركة / hover / touch تظهر الإعدادات فقط
+        بدون تشغيل أو إيقاف الفيديو
+    */
     player.addEventListener("mouseenter", () => {
         showControls();
     });
@@ -181,19 +247,11 @@ if (player && video) {
         showControls();
     });
 
-    player.addEventListener("click", (event) => {
-        if (event.target.closest(".video-controls")) return;
-        if (event.target.closest(".center-play")) return;
+    player.addEventListener("touchstart", () => {
+        showControls();
+    }, { passive: true });
 
-        if (video.paused) {
-            video.play();
-            return;
-        }
-
-        showCenterPauseIcon();
-    });
-
-    progress.addEventListener("pointerdown", (event) => {
+    progress?.addEventListener("pointerdown", (event) => {
         event.stopPropagation();
 
         isDragging = true;
@@ -202,23 +260,30 @@ if (player && video) {
         showControls();
     });
 
-    progress.addEventListener("pointermove", (event) => {
+    progress?.addEventListener("pointermove", (event) => {
         if (!isDragging) return;
 
+        event.stopPropagation();
         seekByPointer(event);
         showControls();
     });
 
-    progress.addEventListener("pointerup", (event) => {
+    progress?.addEventListener("pointerup", (event) => {
         event.stopPropagation();
 
         isDragging = false;
         showControls();
     });
 
-    progress.addEventListener("pointercancel", () => {
+    progress?.addEventListener("pointercancel", () => {
         isDragging = false;
     });
+
+    document.addEventListener("fullscreenchange", updateFullscreenIcon);
+    document.addEventListener("webkitfullscreenchange", updateFullscreenIcon);
+
+    video.addEventListener("webkitbeginfullscreen", updateFullscreenIcon);
+    video.addEventListener("webkitendfullscreen", updateFullscreenIcon);
 
     video.addEventListener("loadedmetadata", updateTime);
     video.addEventListener("timeupdate", updateTime);
@@ -228,4 +293,5 @@ if (player && video) {
 
     updateTime();
     updatePlayState();
+    updateFullscreenIcon();
 }
