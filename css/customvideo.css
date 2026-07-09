@@ -36,7 +36,9 @@
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
+    background: #000;
     pointer-events: none;
 }
 
@@ -299,4 +301,58 @@
 .video-progress-thumb {
     background: #ffffff !important;
     box-shadow: 0 0 0 4px rgba(5, 143, 255, 0.22) !important;
+}
+
+/* ===== VIDEO CONTROLS AUTO HIDE ===== */
+
+.video-controls {
+    transition:
+        opacity 0.22s ease,
+        transform 0.22s ease,
+        visibility 0.22s ease;
+}
+
+.custom-video-player.controls-hidden .video-controls {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(14px);
+}
+
+.custom-video-player.playing.show-center .center-play {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: scale(1) !important;
+}
+
+.custom-video-player.playing.controls-hidden .center-play {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: scale(0.82) !important;
+}
+
+.video-controls {
+    transition:
+        opacity 0.22s ease,
+        transform 0.22s ease,
+        visibility 0.22s ease;
+}
+
+.custom-video-player.controls-hidden .video-controls {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(14px);
+}
+
+.custom-video-player.playing .center-play {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.82);
+}
+
+.custom-video-player.show-center .center-play {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: scale(1) !important;
 }
