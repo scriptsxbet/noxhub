@@ -906,3 +906,36 @@ html.theme-light .download-icon i {
 html.theme-light .download-icon i::before {
     color: #ffffff !important;
 }
+
+/* =====================================================
+   FLOATING DOWNLOAD BUTTON - LIGHT MODE
+   ===================================================== */
+
+html.theme-light .floating-download-btn,
+html.theme-light .floating-download-btn:visited {
+    color: #ffffff !important;
+    background: #058FFF !important;
+    border: 1px solid #058FFF !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+}
+
+html.theme-light .floating-download-btn i {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+}
+
+html.theme-light .floating-download-btn:hover,
+html.theme-light .floating-download-btn:focus {
+    color: #ffffff !important;
+    background: #0077ff !important;
+    border-color: #0077ff !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+}
