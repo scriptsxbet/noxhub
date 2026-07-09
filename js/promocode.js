@@ -7,7 +7,7 @@ const PROMO_DATA = {
     "melbet": {
         name: "MelBet",
         code: "NXR66",
-        url: "https://refpa3665.com/L?tag=d_5717398m_2170c_&site=5717398&ad=2170"
+        url: "https://refpa3665.com/L?tag=d_4570678m_66329c_ml_2990325"
     },
     "linebet": {
         name: "LineBet",
