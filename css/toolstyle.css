@@ -946,3 +946,67 @@
         white-space: nowrap;
     }
 }
+
+.apple-master-title {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    direction: ltr;
+
+    margin: 0;
+
+    font-size: clamp(2.6rem, 7vw, 5.2rem);
+    font-weight: 900;
+    line-height: 0.86;
+    letter-spacing: 0.02em;
+}
+
+.apple-master-title .apple-word {
+    display: block;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 24px rgba(255, 255, 255, 0.12);
+}
+
+.apple-master-title .master-word {
+    display: block;
+
+    margin-top: 0.16em;
+
+    color: #058fff;
+
+    font-size: 0.72em;
+    letter-spacing: 0.12em;
+
+    text-shadow:
+        0 0 28px rgba(5, 143, 255, 0.35);
+}
+
+.apple-master-title.small {
+    align-items: center;
+
+    font-size: clamp(1.55rem, 4vw, 2.45rem);
+}
+
+.theme-light .apple-master-title .apple-word {
+    color: #071426;
+    text-shadow: none;
+}
+
+.theme-light .apple-master-title .master-word {
+    color: #0576d1;
+}
+
+@media (max-width: 767px) {
+    .apple-master-title {
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .apple-master-title .master-word {
+        letter-spacing: 0.08em;
+    }
+}
