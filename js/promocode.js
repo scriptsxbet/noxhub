@@ -2,7 +2,7 @@ const PROMO_DATA = {
     "1xbet": {
         name: "1xBet",
         code: "NXR66",
-        url: "https://tinyurl.com/2h2ddjf6"
+        url: "https://tinyurl.com/33zdw5dc"
     },
     "melbet": {
         name: "MelBet",
